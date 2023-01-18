@@ -1,0 +1,79 @@
+@font-face {
+    font-family: "Inter";
+    src: url("../fonts/Inter-ExtraBold.ttf");
+}
+@font-face {
+    font-family: "Merri";
+    src: url("../fonts/Merriweather-Light.ttf");
+}
+
+$font1: "Inter", serif;
+$font2: "Merri", Times;
+$black1: rgb(17,17,17);
+$white1: rgba(242, 252, 255);
+$white2: rgba(242, 252, 255, 0.315);
+$grey1: rgba(187, 197, 184, 0.959);
+$grey2: rgba(231, 231, 231, 0.925);
+$grey3: rgb(109, 109, 109);
+
+@mixin title {
+    font-family:$font1;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html {
+    scroll-behavior: smooth;
+}
+
+li {
+    list-style: none;
+}
+a, a:visited {
+    color: $white1;
+}
+body {
+    background: url("../img/bg.jpg")fixed center/cover;
+    text-align: center;
+    font-family: $font2;
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0;
+
+    &:before {
+        content: "";
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        top: 0;
+        left: 0;
+        background: $black1;
+        animation: animeBefore 1.5s ease forwards;
+        animation-delay: 0.15s;
+
+        @keyframes animeBefore {
+            to {
+                opacity: 0;
+            }
+        }
+    } 
+}
+.btn {
+    background: none;
+    border: 2px solid $black1;
+    height: 45px;
+    width: 170px;
+    font-size: 0.75rem;
+    cursor: pointer;
+    @include title;
+    transition: 0.27s;
+
+    &:hover {
+        transform: scale(1.03);
+    }
+}
